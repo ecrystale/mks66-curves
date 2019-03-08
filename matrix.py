@@ -13,7 +13,10 @@ def make_bezier():
     pass
 
 def make_hermite():
-    pass
+    t = new_matrix()
+    t[0][0]=2
+    t[0][1]=-2
+    t[0][2]=1
 
 def generate_curve_coefs( p0, p1, p2, p3, t ):
     pass
