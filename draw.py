@@ -4,14 +4,19 @@ from matrix import *
 
 def add_circle( points, cx, cy, cz, r, step ):
     pass
+    #pass
 
 def add_curve( points, x0, y0, x1, y1, x2, y2, x3, y3, step, curve_type ):
-    pass
+    m1=generate_curve_coefs(x1,y1,x2,y2,curve_type)
+    m2=generate_curve_coefs(x2,y2,x3,y3,curve_type)
+    points.append(m1)
+    points.append(m2)
+    #pass
 
 
 def draw_lines( matrix, screen, color ):
     if len(matrix) < 2:
-        print 'Need at least 2 points to draw'
+        print ('Need at least 2 points to draw')
         return
 
     point = 0
