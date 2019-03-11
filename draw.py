@@ -3,14 +3,31 @@ from matrix import *
 
 
 def add_circle( points, cx, cy, cz, r, step ):
-    pass
+    theta=0
+    x1=r*math.cos(math.radians(theta))+cx
+    y1=r*math.sin(math.radians(theta))+cy
+    while theta<360:
+        x=r*math.cos(math.radians(theta))+cx
+        y=r*math.sin(math.radians(theta))+cy
+        points.append([x1,y1,0,1])
+        points.append([x,y,0,1])
+        x1=x
+        y1=y
+        theta+=1
     #pass
 
 def add_curve( points, x0, y0, x1, y1, x2, y2, x3, y3, step, curve_type ):
-    m1=generate_curve_coefs(x1,y1,x2,y2,curve_type)
-    m2=generate_curve_coefs(x2,y2,x3,y3,curve_type)
-    points.append(m1)
-    points.append(m2)
+    while x0<x1 and x3>x2:
+        m1=generate_curve_coefs(x0,y0,x1,y1,curve_type)
+        m2=generate_curve_coefs(x3,y3,x2,y2,curve_type)
+        points.append([x0,y0,0,1])
+        points.append([m1[2],m1[3],0,1])
+        points.append([x3,y3,0,1])
+        points.append([m2[2],m2[3],0,1])
+        x0=m1[2]
+        y0=m1[3]
+        x2=m2[2]
+        y3=m2[3]
     #pass
 
 
