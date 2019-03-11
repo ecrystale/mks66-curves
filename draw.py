@@ -6,28 +6,36 @@ def add_circle( points, cx, cy, cz, r, step ):
     theta=0
     x1=r*math.cos(math.radians(theta))+cx
     y1=r*math.sin(math.radians(theta))+cy
-    while theta<360:
+    while theta<=360:
         x=r*math.cos(math.radians(theta))+cx
         y=r*math.sin(math.radians(theta))+cy
-        points.append([x1,y1,0,1])
-        points.append([x,y,0,1])
+        add_edge( points, x1, y1, 0, x, y, 0)
+#        points.append([x1,y1,0,1])
+#        points.append([x,y,0,1])
         x1=x
         y1=y
         theta+=1
     #pass
 
 def add_curve( points, x0, y0, x1, y1, x2, y2, x3, y3, step, curve_type ):
-    while x0<x1 and x3>x2:
-        m1=generate_curve_coefs(x0,y0,x1,y1,curve_type)
-        m2=generate_curve_coefs(x3,y3,x2,y2,curve_type)
-        points.append([x0,y0,0,1])
-        points.append([m1[2],m1[3],0,1])
-        points.append([x3,y3,0,1])
-        points.append([m2[2],m2[3],0,1])
-        x0=m1[2]
-        y0=m1[3]
-        x2=m2[2]
-        y3=m2[3]
+    i=0
+    #while x0<x1 and x3>x2:
+    while i<1:
+        m1=generate_curve_coefs(x0,x1,x2,x3,curve_type)
+        m2=generate_curve_coefs(y0,y1,y2,y3,curve_type)
+#        add_edge( points, x0, y0, 0, m1[2], m1[3], 0)
+#        add_edge( points, x3, y3, 0, m2[2], m2[3], 0)
+#        points.append([x0,y0,0,1])
+        x4=int(m1[0]*i**3+m1[1]*i**2+m1[2]*i+m1[3])
+        y4=int(m2[0]*i**3+m2[1]*i**2+m2[2]*i+m2[3])
+        add_edge( points, x0, y0, 0, x4, y4, 0)
+        x0=x4
+        y0=y4
+        i+=step
+#        add_edge( points, x0, y0, 0, m1[2], m1[3], 0)
+#        points.append([m1[2],m1[3],0,1])
+#        points.append([x3,y3,0,1])
+#        points.append([m2[2],m2[3],0,1])
     #pass
 
 

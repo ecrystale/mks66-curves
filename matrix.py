@@ -45,7 +45,7 @@ def generate_curve_coefs( p0, p1, p2, p3, t ):
     if t=="hermite":
         m=make_hermite()
     matrix_mult(m,m1)
-    return m1[0]      
+    return m1[0]    
 
 
 def make_translate( x, y, z ):
