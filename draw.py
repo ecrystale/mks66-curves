@@ -3,18 +3,19 @@ from matrix import *
 
 
 def add_circle( points, cx, cy, cz, r, step ):
+    incri=step*2*math.pi
     theta=0
-    x1=r*math.cos(math.radians(theta))+cx
-    y1=r*math.sin(math.radians(theta))+cy
-    while theta<=360:
-        x=r*math.cos(math.radians(theta))+cx
-        y=r*math.sin(math.radians(theta))+cy
+    x1=r*math.cos(theta)+cx
+    y1=r*math.sin(theta)+cy
+    while theta<=2*math.pi:
+        x=r*math.cos(theta)+cx
+        y=r*math.sin(theta)+cy
         add_edge( points, x1, y1, 0, x, y, 0)
 #        points.append([x1,y1,0,1])
 #        points.append([x,y,0,1])
         x1=x
         y1=y
-        theta+=1
+        theta+=incri
     #pass
 
 def add_curve( points, x0, y0, x1, y1, x2, y2, x3, y3, step, curve_type ):
