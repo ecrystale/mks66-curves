@@ -9,6 +9,8 @@ z0  z1  ... zn
 """
 import math
 
+# cubic hermite curve inverse
+
 def make_bezier():
     t = new_matrix()
     t[0][0]=-1
@@ -21,7 +23,7 @@ def make_bezier():
     t[2][0]=-3
     t[2][1]=3
     t[3][0]=1
-    t[3][2]=6
+    t[3][2]=0
     return t
 
 def make_hermite():
@@ -30,9 +32,9 @@ def make_hermite():
     t[0][1]=-3
     t[0][3]=1
     t[1][0]=-2
-    t[1][1]=-3
+    t[1][1]=3
     t[2][0]=1
-    t[2][1]=-1
+    t[2][1]=-2
     t[2][2]=1
     t[3][0]=1
     t[3][1]=-1
