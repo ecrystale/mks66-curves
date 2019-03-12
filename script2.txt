@@ -1,0 +1,21 @@
+circle
+250 250 0 170
+#circle
+175 325 0 50
+#circle
+325 325 0 50
+#circle
+150 350 0 20
+#circle
+350 350 0 30
+circle
+200 200 0 20
+bezier
+175 300 140 325 150 342 125 300
+bezier
+275 300 240 325 250 342 225 300
+bezier
+350 345 400 100 600 125 350 390 
+display
+save
+mine.png
