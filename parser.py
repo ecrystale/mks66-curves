@@ -114,8 +114,4 @@ def parse_file( fname, edges, transform, screen, color ):
             
         c+= 1
 
-screen = new_screen()
-color = [ 0, 255, 0 ]
-edges = []
-transform = new_matrix()
-parse_file( 'script2.txt', edges, transform, screen, color )
+
